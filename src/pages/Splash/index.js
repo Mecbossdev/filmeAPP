@@ -1,10 +1,17 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
-const Splash = () => {
-  return(
+
+const Splash = ({ navigation }) => {
+  const handleLogin = () => {
+    navigation.navigate('Login')
+  }
+
+  return (
     <View>
-      <Text>Splash</Text>
+      <TouchableOpacity onPress={handleLogin}>
+        <Text>Splash</Text>
+      </TouchableOpacity>
     </View>
   )
 }
