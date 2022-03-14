@@ -1,5 +1,6 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useEffect } from 'react';
+import {Container, Logo} from './style';
+import space from '../../assents/space.png'
 
 
 const Splash = ({ navigation }) => {
@@ -7,12 +8,17 @@ const Splash = ({ navigation }) => {
     navigation.navigate('Login')
   }
 
+  useEffect(()=>{
+    setTimeout(() => {
+      handleLogin();
+    }, 1500);
+  },[])
+
   return (
-    <View>
-      <TouchableOpacity onPress={handleLogin}>
-        <Text>Splash</Text>
-      </TouchableOpacity>
-    </View>
+    <Container>
+      <Logo source={space}/>
+      <SubLogo source={}/>
+    </Container>
   )
 }
 
