@@ -11,12 +11,22 @@ export const Logo = styled.Image.attrs({
   resizeMode: 'stretch'
 })`
   width: 50%;
-  height: 30%;
+  height: 10%;
 `;
 
 export const SubLogo = styled.Image.attrs({
   resizeMode: 'stretch'
 })`
-  width: 50%;
+  width: 30%;
+  height: 3%;
+`;
+
+export const ImageBack = styled.Image.attrs({
+  resizeMode: 'stretch'
+})`
+  width: 100%;
   height: 30%;
+  position: absolute;
+  bottom: 0px;
+
 `;
