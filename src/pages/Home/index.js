@@ -1,16 +1,21 @@
 import React from 'react';
-import { 
-  Container, 
-  Image,
-   
+import {
+  Container,
+  ContainerCarousel,
 } from './style';
 
+import Carousel from './Carousel';
+
 const Home = () => {
-  return(
+  const lista = [0, 1, 2, 3, 6];
+  
+  return (
     <Container>
-      <Image source={{uri: 'https://br.web.img3.acsta.net/pictures/22/03/02/19/26/3666027.jpg'}}/>
+      <ContainerCarousel>
+        <Carousel list={lista}/>
+      </ContainerCarousel>
     </Container>
   )
-}
+};
 
 export default Home;

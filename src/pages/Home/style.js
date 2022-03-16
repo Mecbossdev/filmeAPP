@@ -1,4 +1,7 @@
 import styled from 'styled-components/native'
+import { Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('screen');
 
 export const Container = styled.View`
   background-color: #000;
@@ -6,9 +9,6 @@ export const Container = styled.View`
   
 `;
 
-export const Image = styled.Image.attrs({
-  resizeMode: 'stretch'
-})`
-  width: 100%;
+export const ContainerCarousel = styled.View`
   height: 50%;
 `;
