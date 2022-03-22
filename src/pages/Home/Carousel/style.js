@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
 import { Entypo } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Dimensions } from 'react-native';
@@ -42,12 +42,12 @@ export const Gradient = styled(LinearGradient)`
   position: absolute;
   bottom: 0px;
   flex-direction: row;
-  width: 100%;
+  width: 100%; 
   justify-content: space-evenly;
   align-items: center;
 `;
 
-export const item = styled.TouchableOpacity.attrs({
+export const Item = styled.TouchableOpacity.attrs({
   activeOpacity: 1,
 })`
   height: 100%;
