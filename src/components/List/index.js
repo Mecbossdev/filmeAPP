@@ -1,23 +1,30 @@
 import React from 'react';
-import { ContainerList, ContainerItem, Image, Text } from './style';
+import { ContainerItem, Image, Text } from './style';
+import { FlatList } from 'react-native';
 
-const List = () => {
+const List = ({ list, title, trending }) => {
   return (
     <>
-      <Text>Filmes de Ação</Text>
+      <Text>{title}</Text>
       <FlatList
+        data={list}
         horizontal
-        data={lista}
         style={{ marginTop: 10 }}
         keyExtractor={(item, index) => `${index}`}
         renderItem={({ item }) => {
+          const uri = `https://image.tmdb.org/t/p/w342/${item.poster_path}`;
+
           return (
-            <ContainerItem>
-              <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/pt/0/00/Spider-Man_No_Way_Home_poster.jpg' }} />
+            <ContainerItem trending={trending}>
+              <Image
+                trending={trending}
+                source={{ uri, }} />
             </ContainerItem>
           )
         }}
       />
     </>
   )
-}
+};
+
+export default List;
