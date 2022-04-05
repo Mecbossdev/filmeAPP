@@ -18,12 +18,13 @@ const Carousel = ({ list }) => {
       pagingEnabled
       keyExtractor={(item, index) => `${item}_${index}`}
       renderItem={({ item }) => {
+        const uri = `https://image.tmdb.org/t/p/w342/${item.poster_path}`;
+
         return (
           <Item>
             <Image
               source={{
-                uri:
-                  'https://br.web.img3.acsta.net/pictures/22/03/02/19/26/3666027.jpg'
+                uri,
               }} />
             <Gradient
               colors={["transparent", "rgba(0,0,0,0.9)", "rgba(0,0,0, 1)"]}

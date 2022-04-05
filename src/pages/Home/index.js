@@ -7,45 +7,67 @@ import {
 import Carousel from './Carousel';
 import List from '../../components/List/index';
 import api from '../../services/api';
-
-const apiKey = 'api_key=c2e78b4a8c14e65dd6e27504e6df95ad';
-const language = 'Language=pt-BR';
+import { GetFilmsNowPlaying, GetTrendingFilms, GetGenders } from '../../services/filmsAPI';
 
 const Home = () => {
 
   const [ListTrending, setListTrending] = useState([]);
-  const lista = [0, 1, 2, 3, 6];
+  const [ListFilmNow, setListFilmNow] = useState([]);
+  const [genders, setGenders] = useState([]);
 
-  const init = async () => {
-    const response = await api.get(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=c2e78b4a8c14e65dd6e27504e6df95ad&language=en-US&page=1`
-    )
+  const getFilmsTrending = async () => {
+    const response = await GetTrendingFilms(1);
     setListTrending(response.data.results);
   };
 
+  const getFilmsPlayingNow = async () => {
+    const response = await GetFilmsNowPlaying(1);
+    setListFilmNow(response.data.results);
+  };
+
+  const getGenders = async () => {
+    const response = await GetGenders();
+    setGenders(response.data.genres);
+  };
+
   useEffect(() => {
-    init();
+    getFilmsTrending();
+  }, []);
+
+  useEffect(() => {
+    getFilmsPlayingNow();
+  }, []);
+
+  useEffect(() => {
+    getGenders();
   }, []);
 
   return (
     <Container>
       <ContainerCarousel>
-        <Carousel list={lista} />
+        <Carousel list={ListTrending} />
       </ContainerCarousel>
       <ContainerList>
-        <List list={ListTrending} title="Filmes em cartaz" trending={true} />
+        <List
+          list={ListFilmNow}
+          title="Filmes Assistidos agora"
+          trending={true}
+        />
       </ContainerList>
-    
-      <ContainerList>
-        <List list={ListTrending} title="Filmes em cartaz"/>
-       </ContainerList >
-      <ContainerList>
-        <List list={ListTrending} title="Filmes em cartaz" />
-      </ContainerList>
-      <ContainerList>
-        <List list={ListTrending} title="Filmes em cartaz" />
-      </ContainerList>
-      
+
+      {
+        genders.map((item) => {
+          const title = `Filmes ${item.name}`;
+          return (
+            <ContainerList
+              key={`${item.id}`}>
+              <List
+                list={ListTrending}
+                title={title} />
+            </ContainerList >
+          );
+        })
+      }
     </Container >
   );
 };
