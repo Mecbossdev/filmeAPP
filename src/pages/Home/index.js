@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Container,
-  ContainerCarousel,
-  ContainerList,
-} from './style';
+import { Container, ContainerCarousel, ContainerList } from './style';
+
 import Carousel from './Carousel';
-import List from '../../components/List/index';
-import api from '../../services/api';
-import { GetFilmsNowPlaying, GetTrendingFilms, GetGenders } from '../../services/filmsAPI';
+import List from '../../components/List';
+import { GetFilmsNowPlaying, GetFilmsTrending, GetGenders } from '../../services/filmsAPI';
 
 const Home = () => {
 
@@ -15,19 +11,19 @@ const Home = () => {
   const [ListFilmNow, setListFilmNow] = useState([]);
   const [genders, setGenders] = useState([]);
 
-  const getFilmsTrending = async () => {
-    const response = await GetTrendingFilms(1);
+  const getFilmsTrending = async (page) => {
+    const response = await GetFilmsTrending(1);
+    setListTrending(response.data.results);
+  };
+  
+  const getFilmsNowPlay = async (page) => {
+    const response = await GetFilmsNowPlaying(1);
     setListTrending(response.data.results);
   };
 
-  const getFilmsPlayingNow = async () => {
-    const response = await GetFilmsNowPlaying(1);
-    setListFilmNow(response.data.results);
-  };
-
-  const getGenders = async () => {
+  const getFilmsByGenders = async () => {
     const response = await GetGenders();
-    setGenders(response.data.genres);
+    console.log(response.data);
   };
 
   useEffect(() => {
@@ -35,11 +31,11 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    getFilmsPlayingNow();
+    getFilmsNowPlay();
   }, []);
 
   useEffect(() => {
-    getGenders();
+    getFilmsByGenders();
   }, []);
 
   return (
@@ -56,16 +52,14 @@ const Home = () => {
       </ContainerList>
 
       {
-        genders.map((item) => {
-          const title = `Filmes ${item.name}`;
-          return (
-            <ContainerList
-              key={`${item.id}`}>
-              <List
-                list={ListTrending}
-                title={title} />
-            </ContainerList >
-          );
+        genders.map(item => {
+          const title = `Filmes de ${item.name}`;
+          <ContainerList key={`${item.id}`}>
+            <List
+              list={ListTrending}
+              title={title}
+            />
+          </ContainerList>
         })
       }
     </Container >
