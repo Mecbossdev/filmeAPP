@@ -17,17 +17,20 @@ const Home = () => {
 
   const getFilmsTrending = async (page) => {
     const response = await GetFilmsTrending(1);
-    setListTrending(response.data.results);
+    setListTrending(response.data.results)
+    .catch(error => console.log(error));
   };
 
   const getFilmsNowPlay = async (page) => {
     const response = await GetFilmsNowPlaying(1);
-    setListFilm(response.data.results);
+    setListFilm(response.data.results)
+    .catch(error => console.log(error));
   };
 
   const getFilmsByGenders = async () => {
     const response = await GetGenders();
-    setGenders(response.data.genres);
+    setGenders(response.data.genres)
+    .catch(error => console.log(error));
   };
 
   useEffect(() => {
