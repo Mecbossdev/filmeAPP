@@ -13,6 +13,9 @@ https://developers.themoviedb.org/3/movies/get-now-playing
 Documentação da rota “poster do filme”
 https://developers.themoviedb.org/3/getting-started/images
 
+Documentação da rota “Genero do filme”
+https://developers.themoviedb.org/3/genre/movie/list
+
 Chave da API (api_key): c2e78b4a8c14e65dd6e27504e6df95ad
 
 ## Screenshots:
