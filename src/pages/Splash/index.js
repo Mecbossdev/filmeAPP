@@ -18,7 +18,7 @@ const Splash = ({ navigation }) => {
   return (
     <Container>
       <Logo source={logo}/>
-      <SubLogo source={subLogo}/>
+      <SubLogo />
       <ImageBack source={batman}/>
     </Container>
   )

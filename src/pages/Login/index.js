@@ -33,7 +33,7 @@ const Login = ({ navigation }) => {
     <ImageBackground source={login}>
       <Container>
         <Logo source={logo} />
-        <SubLogo source={subLogo} />
+        <SubLogo/>
         <Form>
           <ContainerInput>
             <Input placeholder='E-mail' placeholderTextColor='white' />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Container, ContainerCarousel, ContainerList } from './style';
-
 import Carousel from './Carousel';
 import List from '../../components/List';
 import { 
@@ -18,19 +17,19 @@ const Home = () => {
   const getFilmsTrending = async (page) => {
     const response = await GetFilmsTrending(1);
     setListTrending(response.data.results)
-    .catch(error => console.log(error));
+    .catch(error => console.log(e));
   };
 
   const getFilmsNowPlay = async (page) => {
     const response = await GetFilmsNowPlaying(1);
     setListFilm(response.data.results)
-    .catch(error => console.log(error));
+    .catch(error => console.log(e));
   };
 
   const getFilmsByGenders = async () => {
     const response = await GetGenders();
     setGenders(response.data.genres)
-    .catch(error => console.log(error));
+    .catch(error => console.log(e));
   };
 
   useEffect(() => {

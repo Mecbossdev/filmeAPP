@@ -14,7 +14,7 @@ export const GetFilmsNowPlaying = (page) => {
 };
 
 export const GetGenders = () => {
-  const url = `genre/movie/list?${apiKey}&${language}`;
+  const url = `genre/movie/list?${apiKey}&${language}&page`;
   return api.get(url);
 };
 
