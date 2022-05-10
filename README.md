@@ -16,5 +16,8 @@ https://developers.themoviedb.org/3/getting-started/images
 Chave da API (api_key): c2e78b4a8c14e65dd6e27504e6df95ad
 
 ## Screenshots:
-### Login Screen:
+### Splash Screen:
 ![](https://raw.githubusercontent.com/Mecbossdev/filmeAPP/master/src/assents/Splash.jpeg)
+
+### Login Screen:
+![](https://github.com/Mecbossdev/filmeAPP/blob/master/src/assents/loginUser.jpeg)
