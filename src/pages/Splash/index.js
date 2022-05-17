@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {Container, Logo, SubLogo, ImageBack } from './style';
 import logo from '../../assents/logo.png';
-import subLogo from '../../assents/subLogo.png';
 import batman from '../../assents/batman.jpg';
 
 const Splash = ({ navigation }) => {

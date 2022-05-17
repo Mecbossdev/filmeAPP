@@ -12,7 +12,6 @@ import {
   Form
 } from './style';
 import logo from '../../assents/logo.png';
-import subLogo from '../../assents/subLogo.png';
 import login from '../../assents/login.jpg';
 
 const Login = ({ navigation }) => {
